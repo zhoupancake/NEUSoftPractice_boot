@@ -6,21 +6,24 @@ spring:
     name: NEUSoftPractice_boot
 
   datasource:
-    public:
-      jdbc-url: jdbc:mysql://localhost:3306/order?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
-      username: root
-      password: root
-      driver-class-name: com.mysql.cj.jdbc.Driver
-    service:
-      jdbc-url: jdbc:mysql://localhost:3306/service?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
-      username: root
-      password: root
-      driver-class-name: com.mysql.cj.jdbc.Driver
-    data:
-      jdbc-url: jdbc:mysql://localhost:3306/data?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
-      username: root
-      password: root
-      driver-class-name: com.mysql.cj.jdbc.Driver
+    dynamic:
+     primary: public
+     datasource:
+      public:
+        url: jdbc:mysql://localhost:3306/NEUSoftPractice_public?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+        username: root
+        password: root
+        driver-class-name: com.mysql.cj.jdbc.Driver
+      service:
+        url: jdbc:mysql://localhost:3306/NEUSoftPractice_service?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+        username: root
+        password: root
+        driver-class-name: com.mysql.cj.jdbc.Driver
+      data:
+        url: jdbc:mysql://localhost:3306/NEUSoftPractice_data?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+        username: root
+        password: root
+        driver-class-name: com.mysql.cj.jdbc.Driver
   data:
     redis:
       host: localhost

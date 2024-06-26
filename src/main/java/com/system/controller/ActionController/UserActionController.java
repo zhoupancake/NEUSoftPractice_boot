@@ -41,7 +41,9 @@ public class UserActionController {
 
     @PostMapping("/login")
     public HttpResponseEntity login(@RequestBody User user, HttpServletResponse response) {
+        System.out.println(user);
         List<User> users = userService.query().eq("username", user.getUsername()).list();
+        System.out.println(users);
         if (users.isEmpty())
             return HttpResponseEntity.response(false, "login for error username or password", null);
         User loginUser = users.get(0);
